@@ -1,0 +1,3 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	SRR11461738_2	/mnt/local/vse2020/home/alex_fedorov/nanopore-hw/qc/fastqc/SRR11461738_2_fastqc.zip
+FastQC	all_sections	SRR11461738_1	/mnt/local/vse2020/home/alex_fedorov/nanopore-hw/qc/fastqc/SRR11461738_1_fastqc.zip
