@@ -142,7 +142,9 @@ conda install -c bioconda racon
 unicycler -1 fastq/SRR11461738/SRR11461738_1.fastq -2 fastq/SRR11461738/SRR11461738_2.fastq \
 	  -l fastq/SRR11461739/SRR11461739.trimmed.filtlong.fastq -o assembly -t 16 > unicycler.log & disown
 ```
-Лог доступен в файле `unicycler.log`. При полировке сборки `pilon` упал с OutOfMemoryError, т.к. в jvm стандартный размер кучи небольшой. 
+Лог доступен в файле `unicycler.log`.  
+
+При полировке сборки `pilon` упал с OutOfMemoryError, т.к. в jvm стандартный размер кучи небольшой. 
 Через переменные окружения максимальный размер кучи jvm можно увеличить и повторить сборку/полировку, но в нашем учебном примере этот момент упустим.
 В финале получилась одна кольцевая хромосома:
 
