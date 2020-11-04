@@ -160,15 +160,18 @@ cat assembly/assembly.fasta | grep ">"
 Клонируем репозиторий abricate:
 ```git clone https://github.com/tseemann/abricate.git
 cd abricate/bin
-./abricate ~/hw.fasta```
+./abricate ~/hw.fasta
+```
 
 Для работы abricate нужен скрипт any2fasta:
 ```wget https://raw.githubusercontent.com/tseemann/any2fasta/master/any2fasta
-export PATH=~/abricate/bin:$PATH```
+export PATH=~/abricate/bin:$PATH
+```
 
 А также Path/Tiny.pm:
 ```mkdir Path
-curl "https://raw.githubusercontent.com/dagolden/Path-Tiny/master/lib/Path/Tiny.pm" > Path/Tiny.pm```
+curl "https://raw.githubusercontent.com/dagolden/Path-Tiny/master/lib/Path/Tiny.pm" > Path/Tiny.pm
+```
 
 Запускаем:
 `abricate ~/hw.fasta > hw.out`
@@ -180,4 +183,5 @@ hw.fasta	1	604334	605977	-	vmlR	1-1644/1644	===============	0/0	100.00	100.00	nc
 hw.fasta	1	2050924	2053523	-	rphC	1-2606/2607	========/======	6/26	99.35	82.42	ncbi	NG_063825.1	rifamycin-inactivating phosphotransferase RphC	RIFAMYCIN
 hw.fasta	1	2735279	2736133	-	aadK	1-855/855	===============	0/0	100.00	100.00	ncbi	NG_047379.1	aminoglycoside 6-adenylyltransferase AadK	STREPTOMYCIN
 hw.fasta	1	4184757	4185278	-	satA_Bs	1-522/522	===============	0/0	100.00	100.00	ncbi	NG_064662.1	streptothricin N-acetyltransferase SatA	STREPTOTHRICIN
-hw.fasta	1	4187278	4188654	-	tet(L)	1-1377/1377	===============	0/0	100.00	100.00	ncbi	NG_048204.1	tetracycline efflux MFS transporter Tet(L)	TETRACYCLINE```
+hw.fasta	1	4187278	4188654	-	tet(L)	1-1377/1377	===============	0/0	100.00	100.00	ncbi	NG_048204.1	tetracycline efflux MFS transporter Tet(L)	TETRACYCLINE
+```
