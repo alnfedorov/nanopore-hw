@@ -74,7 +74,7 @@ porechop -i fastq/SRR11461739/SRR11461739.filtlong.fastq -o fastq/SRR11461739/SR
 
 ### Шаг 4 - qc
 
-Сначала fastqc для парных прочтений:
+Создаем требуемые директории и запускаем fastqc:
 ```shell
 mkdir -p qc/fastqc qc/minionqc
 
@@ -87,6 +87,7 @@ Rscript MinIONQC.R -p 16 -i fastq/SRR11461739/SRR11461739.fastq -o qc/minionqc/S
 Rscript MinIONQC.R -p 16 -i fastq/SRR11461739/SRR11461739.filtlong.fastq -o qc/minionqc/SRR11461739.filtlong
 Rscript MinIONQC.R -p 16 -i fastq/SRR11461739/SRR11461739.trimmed.filtlong.fastq -o qc/minionqc/SRR11461739.trimmed.filtlong.fastq
 ```
+
 К сожалению, во всех случаях minionqc упал с ошибкой следующего вида:
 ```shell
 INFO [2020-11-03 22:17:20] Loading input file: fastq/SRR11461739/SRR11461739.filtlong.fastq
@@ -126,8 +127,19 @@ multiqc -o qc qc
 MultiQC отчет доступен по [ссылке](https://htmlpreview.github.io/?https://github.com/alnfedorov/nanopore-hw/blob/master/qc/multiqc_report.html).
 
 Из отчета можно заметить, что адаптеры у парных прочтений уже обрезаны, однако есть странное распределение в первых 20 и последних 5 позициях. 
-Кажется, что это просто артефакт секвенирования на Illumina(будет здорово, если Вы прокомментируете). 
+Кажется, что это просто артефакт секвенирования на Illumina(будет здорово, если Вы прокомментируете).  
 Чтобы не потерять информацию, обрезать их не будем. Если сборка получится плохой, то всегда можно вернуться и попробовать обрезать.
 
 Для предобработанных длинных прочтений такое почти не характерно, но 5\` конец также можно обрезать при необходимости.  
-(Странное распределение на 3\` конце можно объяснить очень просто - настолько длинных прочтений всего несколько.)
+Странное распределение на 3\` конце можно объяснить очень просто - настолько длинных прочтений всего несколько.
+
+### Шаг 5 - сборка генома
+Ставим зависимость `unicycler` `racon`, который по какой-то причине не был установлен `conda` сразу.
+Затем собираем бактериальный геном в гибридном режиме(длинные + короткие прочтения):
+```shell
+conda install -c bioconda racon
+
+unicycler -1 fastq/SRR11461738/SRR11461738_1.fastq -2 fastq/SRR11461738/SRR11461738_2.fastq \
+	  -l fastq/SRR11461739/SRR11461739.trimmed.filtlong.fastq -o assembly -t 16 > unicycler.log & disown
+```
+Лог доступен в файле `unicycler.log`, проблем при сборке не было.
