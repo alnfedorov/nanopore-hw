@@ -173,6 +173,9 @@ export PATH=~/abricate/bin:$PATH
 curl "https://raw.githubusercontent.com/dagolden/Path-Tiny/master/lib/Path/Tiny.pm" > Path/Tiny.pm
 ```
 
+Скачиваем базы:
+`abricate --setupdb`
+
 Запускаем:
 `abricate ~/hw.fasta > hw.out`
 
