@@ -19,8 +19,7 @@ conda install -y -c bioconda \
 	multiqc   \ # qc
 	porechop  \ # nanopore trimming
 	filtlong  \ # long reads filtering
-	unicycler \ # bacterial genome assembler
-	abricate    # screening for antimicrobial resistance or virulence genes
+	unicycler   # bacterial genome assembler
 ```
 
 К сожалению, bioconda рецепт для r-minionqc(qc для длинных прочтений) сломан, r-minionqc не ставится даже в чистое окружение. 
@@ -160,7 +159,7 @@ cat assembly/assembly.fasta | grep ">"
 Для того, чтобы определить, к какому виду принадлежит собранная бактерия, восппользуемся NCBI Blast. Собранный геном оказался слишком большим 
 для того, чтобы загрузить его в blastn, поэтому он был разделён на части длиной по 5000 пн (+остаток) при помощи следующей команды:
 ```shell
-split -l 5000  --numeric-suffixes assembly.fasta
+split -l 5000  --numeric-suffixes assembly/assembly.fasta
 ```
 Параметры blastn устанавливались по умолчанию, выбранный организм - bacteria (taxid:2).
 В результате работы blastn было установлено, что данная бактерия принадлежит к Bacillus subtilis.
@@ -186,7 +185,7 @@ curl "https://raw.githubusercontent.com/dagolden/Path-Tiny/master/lib/Path/Tiny.
 `abricate --setupdb`
 
 Запускаем:
-`abricate ~/hw.fasta > hw.out`
+`abricate assembly/assembly.fasta > hw.out`
 
 Результат:
 ```#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
