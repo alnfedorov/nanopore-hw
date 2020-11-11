@@ -168,17 +168,20 @@ split -l 5000  --numeric-suffixes assembly.fasta
 ### abricate
 
 Клонируем репозиторий abricate:
-```git clone https://github.com/tseemann/abricate.git
+```
+git clone https://github.com/tseemann/abricate.git
 cd abricate/bin
 ```
 
 Для работы abricate нужен скрипт any2fasta:
-```wget https://raw.githubusercontent.com/tseemann/any2fasta/master/any2fasta
+```
+wget https://raw.githubusercontent.com/tseemann/any2fasta/master/any2fasta
 export PATH=~/abricate/bin:$PATH
 ```
 
 А также Path/Tiny.pm:
-```mkdir Path
+```
+mkdir Path
 curl "https://raw.githubusercontent.com/dagolden/Path-Tiny/master/lib/Path/Tiny.pm" > Path/Tiny.pm
 ```
 
@@ -189,7 +192,8 @@ curl "https://raw.githubusercontent.com/dagolden/Path-Tiny/master/lib/Path/Tiny.
 `abricate ~/hw.fasta > hw.out`
 
 Результат:
-```#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+```
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
 hw.fasta	1	275436	276356	+	mphK	1-921/921	===============	0/0	100.00	100.00	ncbi	NG_065846.1	macrolide 2'-phosphotransferase MphK	MACROLIDE
 hw.fasta	1	604334	605977	-	vmlR	1-1644/1644	===============	0/0	100.00	100.00	ncbi	NG_063831.1	ABC-F type ribosomal protection protein VmlR	LINCOSAMIDE;STREPTOGRAMIN;TIAMULIN
 hw.fasta	1	2050924	2053523	-	rphC	1-2606/2607	========/======	6/26	99.35	82.42	ncbi	NG_063825.1	rifamycin-inactivating phosphotransferase RphC	RIFAMYCIN
