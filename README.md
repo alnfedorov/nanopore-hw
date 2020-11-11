@@ -160,7 +160,6 @@ cat assembly/assembly.fasta | grep ">"
 Клонируем репозиторий abricate:
 ```git clone https://github.com/tseemann/abricate.git
 cd abricate/bin
-./abricate ~/hw.fasta
 ```
 
 Для работы abricate нужен скрипт any2fasta:
