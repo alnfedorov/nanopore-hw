@@ -164,7 +164,9 @@ split -l 5000  --numeric-suffixes assembly/assembly.fasta
 Параметры blastn устанавливались по умолчанию, выбранный организм - bacteria (taxid:2).
 В результате работы blastn было установлено, что данная бактерия принадлежит к Bacillus subtilis.
 
-### Шаг 7 - abricate
+### Шаг 7
+
+### Шаг 8 - abricate
 
 Клонируем репозиторий abricate:
 ```
