@@ -167,7 +167,9 @@ split -l 5000  --numeric-suffixes assembly/assembly.fasta
 ### Шаг 7 - Bandage
 
 Установили Bandage на домвшнем ноутбуке при помощи команды
+
 `conda install Bandage`
+
 На вход `Bandage` принимает файлы с расширением .gfa, такие файлы сгенерировала программа unicycler, причем мы имеем не один конечный файл а 6 посдледовательных файлов, сгенерированных в процессе сборки. Визуализируем три из них:
 
 ![001_best_spades_graph.gfa](https://github.com/VasyaSokolov/nanopore-hw/blob/master/graph1.png)
