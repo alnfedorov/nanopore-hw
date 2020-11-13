@@ -167,11 +167,17 @@ split -l 5000  --numeric-suffixes assembly/assembly.fasta
 ### Шаг 7 - Bandage
 
 Установили Bandage на домвшнем ноутбуке при помощи команды
-conda install Bandage
-На вход Bandage принимает файлы с расширением .gfa, такие файлы сгенерировала программа unicycler, причем мы имеем не один конечный файл а 6 посдледовательных файлов, сгенерированных в процессе сборки. Визуализируем три из них:
-001_best_spades_graph.gfa 
-![001_best_spades_graph.gfa](https://github.com/VasyaSokolov/nanopore-hw/blob/master/graph1.png)
+`conda install Bandage`
+На вход `Bandage` принимает файлы с расширением .gfa, такие файлы сгенерировала программа unicycler, причем мы имеем не один конечный файл а 6 посдледовательных файлов, сгенерированных в процессе сборки. Визуализируем три из них:
 
+![001_best_spades_graph.gfa](https://github.com/VasyaSokolov/nanopore-hw/blob/master/graph1.png)
+Граф в котором показаны длинные и коротнкие прочтения - это вершины, рёбра это возможные варианты их соединения.
+
+![004_bridges_applied.gfa](https://github.com/VasyaSokolov/nanopore-hw/blob/master/graph2.png)
+Граф почти полностью собранной хромосомы бактерии вершины ещё не соединены, кроме того в нижнем правом углу представлены нескольео маленьких графов из коротких прочтений, которые алгоритм ещё не внёс в основной граф, соответствующий бактериальной хромосоме.
+
+![assembly.gfa](https://github.com/VasyaSokolov/nanopore-hw/blob/master/graph3.png)
+Граф из одной вершины, соответствующие полностью собраной бактериальной хромосоме.
 
 
 
